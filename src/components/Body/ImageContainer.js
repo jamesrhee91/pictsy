@@ -1,7 +1,11 @@
 import React from 'react'
 import './style.css'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as imageActions from '../../actions/images'
 
-export default class ImageContainer extends React.Component {
+
+class ImageContainer extends React.Component {
   state = {
     images: []
   }
@@ -12,7 +16,7 @@ export default class ImageContainer extends React.Component {
       headers: {
         'Content-Type': 'application/json',
         'Accept': "application/json",
-        'Authorization': 'Client-ID b794206794b7f0f'
+        'Authorization': process.env.REACT_APP_CLIENT_ID
       }
     }
     // https://api.imgur.com/3/gallery/top/viral/day/1?showViral=true&mature=false&album_previews=true
@@ -55,3 +59,18 @@ export default class ImageContainer extends React.Component {
     )
   }
 }
+
+
+function mapStateToProps(state) {
+  return {
+    sort: state.filter.sort,
+    window: state.filter.window,
+    page: state.filter.page
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(imageActions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ImageContainer)
