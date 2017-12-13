@@ -2,7 +2,9 @@ import React from 'react'
 import './style.css'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as imageActions from '../../actions/images'
+import * as picturesActions from '../../actions/pictures'
+import ImageCard from './ImageCard'
+
 
 
 class ImageContainer extends React.Component {
@@ -12,13 +14,14 @@ class ImageContainer extends React.Component {
   }
 
   render() {
+
     const images = this.props.images.map(pic => {
       if (pic.images) {
-        return <a href={pic.link}><div key={pic.id} className="image" style={{backgroundImage: `url(${pic.images[0]["link"]})`}}></div></a>
+        return <ImageCard key={pic.id} pic={pic} url={pic.images[0]["link"]} />
       } else {
-        return <a href={pic.link}><div key={pic.id} className="image" style={{backgroundImage: `url(${pic.link})`}}></div></a>
+        return <ImageCard key={pic.id} pic={pic} url={pic.link} />
       }
-      // return <div key={pic.id} className="image" style={{backgroundImage: `url(https://i.imgur.com/${pic.cover}.jpg)`}}></div>
+      return <div key={pic.id} className="image" style={{backgroundImage: `url(https://i.imgur.com/${pic.cover}.jpg)`}}></div>
     })
     return (
       <div className="image-wrapper">
@@ -41,7 +44,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(imageActions, dispatch)
+  return bindActionCreators(picturesActions, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ImageContainer)
