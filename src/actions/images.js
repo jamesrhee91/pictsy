@@ -1,19 +1,16 @@
-export function getImages() {
+export function getImages(state) {
   const data = {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       'Accept': "application/json",
       'Authorization': process.env.REACT_APP_CLIENT_ID
-    },
-    body: JSON.stringify({
-
-    })
+    }
   }
-  // https://api.imgur.com/3/gallery/top/viral/day/1?showViral=true&mature=false&album_previews=true
-  // https://api.imgur.com/3/gallery/search/{{sort}}/{{window}}/{{page}}?q=dogs
+  // https://api.imgur.com/3/gallery/{{section}}/{{sort}}/{{window}}/{{page}}?showViral=true&mature=false&album_previews=true
+  // showViral=true&mature=${state.mature}&album_previews=true
   return (dispatch) => {
-    fetch(`https://api.imgur.com/3/gallery/top/viral/day/1?showViral=true&mature=false&album_previews=true`, data)
+    fetch(`https://api.imgur.com/3/gallery/${state.section}/${state.sort}/${state.window}/showViral=true&mature=${state.mature}&album_previews=true`, data)
       .then(res => res.json())
       .then(pics => {
 
@@ -28,16 +25,16 @@ export function getImages() {
             return true
           }
         })
-        // console.log("old pics", pics.data)
-        // console.log("new pics", newPics)
-        // dispatch({type: ''})
-
+        console.log("original pics", pics.data)
+        console.log("new pics", newPics)
+        dispatch({type: 'CHANGE_IMAGES', payload: newPics})
       })
-      .catch()
+      .catch(error => console.log("Error at getImages", error))
   }
 }
 
 export function searchImages() {
+  // https://api.imgur.com/3/gallery/search/{{sort}}/{{window}}/{{page}}?q=dogs
 
 }
 

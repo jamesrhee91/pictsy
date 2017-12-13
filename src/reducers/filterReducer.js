@@ -1,9 +1,14 @@
 export default function filterReducer(state = {
-  sort: "time",
-  window: "all",
-  page: "5"
+  images: [],
+  section: "hot",
+  sort: "viral",
+  window: "day",
+  page: "1",
+  mature: "false"
 }, action) {
-  switch (action.payload) {
+  switch (action.type) {
+    case "CHANGE_IMAGES":
+      return {...state, images: action.payload}
     case "CHANGE_SORT":
       return {...state, sort: action.payload}
     case "CHANGE_WINDOW":
