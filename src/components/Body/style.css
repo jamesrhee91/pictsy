@@ -1,0 +1,16 @@
+.image-wrapper {
+  height: auto;
+  width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: auto;
+}
+
+.image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 400px;
+  margin-top: 0.5em;
+}
