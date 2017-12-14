@@ -1,13 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import RaisedButton from 'material-ui/RaisedButton';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 
 
-class FilterContainer extends React.Component {
+export default class FilterButton extends React.Component {
 
   state = {
     open: false
@@ -52,15 +50,3 @@ handleRequestClose = () => {
     )
   }
 }
-
-function mapStateToProps(state) {
-  return {
-    section: state.filter.section,
-    sort: state.filter.sort,
-    window: state.filter.window,
-    page: state.filter.page,
-    mature: state.filter.mature
-  }
-}
-
-export default connect(mapStateToProps)(FilterContainer)

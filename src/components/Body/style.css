@@ -13,7 +13,7 @@
   height: 300px;
   width: 300px;
   margin-top: 0.5em;
-  border-radius: 10%
+  border-radius: 6%
 }
 
 .image {
@@ -22,7 +22,7 @@
 }
 
 .overlay {
-  border-radius: 10%;
+  border-radius: 6%;
   height: 100%;
   width: 100%;
   z-index: -1;

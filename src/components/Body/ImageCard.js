@@ -5,7 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 class ImageCard extends React.Component {
 
   state = {
-    open: false,
+    open: false
   }
 
   handleOpen = () => {

@@ -1,10 +1,5 @@
 export default function filterReducer(state = {
   images: [],
-  section: "hot",
-  sort: "viral",
-  window: "day",
-  page: "1",
-  mature: "false"
 }, action) {
   switch (action.type) {
     case "CHANGE_IMAGES":
