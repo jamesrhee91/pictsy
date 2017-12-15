@@ -8,9 +8,9 @@ import { Provider } from 'react-redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import searchReducer from './reducers/searchReducer'
-import filterReducer from './reducers/filterReducer'
+import optionsReducer from './reducers/optionsReducer'
 
-const rootReducers = combineReducers({search: searchReducer, filter: filterReducer})
+const rootReducers = combineReducers({search: searchReducer, options: optionsReducer})
 
 const store = createStore(rootReducers, composeWithDevTools(applyMiddleware(thunk)))
 

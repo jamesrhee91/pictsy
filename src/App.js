@@ -28,7 +28,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    images: state.filter.images
+    images: state.options.images,
+    mature: state.options.mature
   }
 }
 

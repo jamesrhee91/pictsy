@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 import SearchBar from './SearchBar'
-import FilterButton from './FilterButton'
+import SortButton from './SortButton'
 
 export default class HeadContainer extends React.Component {
 
@@ -10,7 +10,7 @@ export default class HeadContainer extends React.Component {
       <div id="head">
         <div id="title">ASDFGH</div>
         <SearchBar />
-        <FilterButton />
+        <SortButton />
       </div>
     )
   }

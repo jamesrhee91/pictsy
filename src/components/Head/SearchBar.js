@@ -17,7 +17,10 @@ export default class SearchBar extends React.Component {
   render() {
     return (
       <div id="search-bar-container">
-        <TextField hintText="Search"/>
+        <TextField
+          hintText="Search"
+          underlineFocusStyle={{borderColor: 'grey800'}}
+        />
       </div>
     )
   }
