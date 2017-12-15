@@ -11,6 +11,17 @@ class ImageCard extends React.Component {
     open: false
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("this.props from SCU", this.props.pic)
+    console.log("nextProps from SCU", nextProps)
+    return true
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("this.props from CWRP", this.props)
+    console.log("nextProps from CWRP", nextProps)
+  }
+
   handleOpen = () => {
     this.setState({open: true});
   }
@@ -51,6 +62,7 @@ class ImageCard extends React.Component {
           autoScrollBodyContent={true}
           bodyClassName="dialog-body"
         >
+          <h1>{this.props.pic.title}</h1>
           <img className="image" src={this.props.url} alt={this.props.pic.title} />
           <CommentForm pic={this.props.pic} addComment={this.addComment} />
           <CommentBox comments={this.props.pic.comments}/>

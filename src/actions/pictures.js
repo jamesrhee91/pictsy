@@ -12,7 +12,7 @@ export function getImages(state) {
   // https://api.imgur.com/3/gallery/search/time/all/0?q=cats
 //https://api.imgur.com/3/gallery/${state.section}/${state.sort}/${state.window}/showViral=true&mature=${state.mature}&album_previews=true
   return (dispatch) => {
-    fetch(`https://api.imgur.com/3/gallery/search/time/all/0?q=puppies&q_type=png&q_type=album`, data)
+    fetch(`https://api.imgur.com/3/gallery/search/time/all/0?q=dogs&q_type=png&q_type=album`, data)
       .then(res => res.json())
       .then(pics => {
         console.log("original pics", pics)

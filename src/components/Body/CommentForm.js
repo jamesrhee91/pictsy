@@ -16,6 +16,7 @@ export default class CommentForm extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     console.log("SUBMITTING:", this.state.comment)
+    
     if (/\S/.test(this.state.comment)) {
       this.props.addComment(this.state.comment)
       this.setState({ comment: "", error: "" })
