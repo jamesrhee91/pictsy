@@ -1,7 +1,6 @@
 import React from 'react'
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import CommentForm from './CommentForm'
 import CommentBox from './CommentBox'
 import './style.css'
 
@@ -9,17 +8,6 @@ class ImageCard extends React.Component {
 
   state = {
     open: false
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("this.props from SCU", this.props.pic)
-    console.log("nextProps from SCU", nextProps)
-    return true
-  }
-
-  componentWillReceiveProps(nextProps) {
-    console.log("this.props from CWRP", this.props)
-    console.log("nextProps from CWRP", nextProps)
   }
 
   handleOpen = () => {
@@ -52,7 +40,7 @@ class ImageCard extends React.Component {
     ]
 
     return (
-      <div key={this.props.pic.id} className="image-card" style={{backgroundImage: `url(${this.props.url})`}} onClick={this.handleOpen}>
+      <div className="image-card" style={{backgroundImage: `url(${this.props.url})`}} onClick={this.handleOpen}>
         <Dialog
           title={this.props.pic.title}
           actions={actions}
@@ -64,9 +52,7 @@ class ImageCard extends React.Component {
         >
           <h1>{this.props.pic.title}</h1>
           <img className="image" src={this.props.url} alt={this.props.pic.title} />
-          <CommentForm pic={this.props.pic} addComment={this.addComment} />
-          <CommentBox comments={this.props.pic.comments}/>
-          {/* {this.props.pic.comments ? this.props.pic.comments.map((p, i) => <ul key={i}>{Object.values(p)}</ul>) : null} */}
+          <CommentBox pic={this.props.pic} />
         </Dialog>
         <div className="overlay"></div>
       </div>

@@ -2,6 +2,7 @@ export default function optionsReducer(state = {
   images: [],
   currentSort: 'LATEST',
   mature: false,
+  currentImage: null
 }, action) {
   let newImages
 
@@ -20,6 +21,19 @@ export default function optionsReducer(state = {
     case "LATEST":
       newImages = state.images.slice().sort(_compareValues('datetime', 'desc'))
       return {...state, images: newImages, currentSort: action.type}
+    case "ADD_COMMENT":
+      // newImages = state.images.slice()
+      // let idx = newImages.findIndex(e => e.id === action.pic.id)
+      // newImages[idx]["comments"] ? newImages[idx]["comments"].push(action.payload) : newImages[idx]["comments"] = []
+      // return {...state, images: newImages}
+      if (action.pic.comments) {
+        let length = action.pic.comments.length.toString()
+        action.pic.comments.push({ [length]:action.payload })
+      } else {
+        action.pic.comments = []
+        action.pic.comments.push({ "0":action.payload })
+      }
+      return {...state, images: {...state.images, }}
     default:
       return state
   }

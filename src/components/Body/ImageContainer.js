@@ -6,11 +6,11 @@ import ImageCard from './ImageCard'
 
 const ImageContainer = ({ images }) => {
 
-    const allImages = images.map(pic => {
+    const allImages = images.map((pic, idx) => {
       if (pic.images[0]) {
-        return <ImageCard key={pic.id} pic={pic} url={pic.images[0]["link"]} />
+        return <ImageCard key={idx} pic={pic} url={pic.images[0]["link"]} />
       } else {
-        return <ImageCard key={pic.id} pic={pic} url={pic.link} />
+        return <ImageCard key={idx} pic={pic} url={pic.link} />
       }
     })
 
