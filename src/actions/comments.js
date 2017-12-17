@@ -1,5 +1,5 @@
-export function addComment(pic, comment) {
+export function addComment(idx, comment) {
   return (dispatch) => {
-    dispatch({type: "ADD_COMMENT", pic: pic, payload: comment})
+    dispatch({type: "ADD_COMMENT", idx, payload: comment})
   }
 }

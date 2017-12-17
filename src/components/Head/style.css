@@ -7,9 +7,21 @@
   align-items: center;
 }
 
-#title {
+.title {
   font-size: 10vw;
-  margin: auto;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+
+#title-wrapper {
+  margin-top: 10%;
+  border: 3px solid;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 #search-bar-container {

@@ -22,18 +22,31 @@ export default function optionsReducer(state = {
       newImages = state.images.slice().sort(_compareValues('datetime', 'desc'))
       return {...state, images: newImages, currentSort: action.type}
     case "ADD_COMMENT":
-      // newImages = state.images.slice()
-      // let idx = newImages.findIndex(e => e.id === action.pic.id)
-      // newImages[idx]["comments"] ? newImages[idx]["comments"].push(action.payload) : newImages[idx]["comments"] = []
-      // return {...state, images: newImages}
-      if (action.pic.comments) {
-        let length = action.pic.comments.length.toString()
-        action.pic.comments.push({ [length]:action.payload })
-      } else {
-        action.pic.comments = []
-        action.pic.comments.push({ "0":action.payload })
-      }
-      return {...state, images: {...state.images, }}
+      newImages = state.images.map((content, index) => {
+        if (index === action.idx) {
+          if (content.comments) {
+            let length = content.comments.length
+            content.comments.push({ [length]:action.payload })
+          } else {
+            content.comments = []
+            content.comments.push({ "0":action.payload })
+          }
+          return content
+        }
+
+        return content
+      })
+      return {...state, images: newImages }
+
+      // if (action.pic.comments) {
+      //   let length = action.pic.comments.length.toString()
+      //   action.pic.comments.push({ [length]:action.payload })
+      // } else {
+      //   action.pic.comments = []
+      //   action.pic.comments.push({ "0":action.payload })
+      // }
+      // return {...state, images: {...state.images, }}
+
     default:
       return state
   }

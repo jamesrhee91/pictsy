@@ -30,7 +30,6 @@ class ImageCard extends React.Component {
 
 
   render() {
-
     const actions = [
       <FlatButton
         label="Cancel"
@@ -38,7 +37,6 @@ class ImageCard extends React.Component {
         onClick={this.handleClose}
       />
     ]
-
     return (
       <div className="image-card" style={{backgroundImage: `url(${this.props.url})`}} onClick={this.handleOpen}>
         <Dialog
@@ -52,9 +50,9 @@ class ImageCard extends React.Component {
         >
           <h1>{this.props.pic.title}</h1>
           <img className="image" src={this.props.url} alt={this.props.pic.title} />
-          <CommentBox pic={this.props.pic} />
+          <CommentBox idx={this.props.idx} pic={this.props.pic} />
         </Dialog>
-        <div className="overlay"></div>
+        <div className="overlay"><div id="overlay-text">View Image</div></div>
       </div>
     )
   }
