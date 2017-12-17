@@ -20,6 +20,12 @@
   max-width: 100%;
   height: auto;
   margin: auto;
+  margin-top: 3%;
+}
+
+
+.dialog-body {
+  width: 100%;
 }
 
 .overlay {
@@ -45,6 +51,7 @@
 }
 
 .comment-box {
+  padding: 3%;
   width: 100%;
   height: auto;
   box-sizing: border-box;

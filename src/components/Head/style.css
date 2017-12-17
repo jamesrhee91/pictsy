@@ -1,5 +1,4 @@
 #head {
-  height: 20em;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -17,8 +16,10 @@
 }
 
 #title-wrapper {
-  margin-top: 10%;
-  border: 3px solid;
+  padding: .5em;
+  margin-top: 4%;
+  margin-bottom: 3%;
+  border: .8vw solid;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -26,11 +27,4 @@
 
 #search-bar-container {
   margin: auto;
-}
-
-.dialog-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
 }

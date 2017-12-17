@@ -48,7 +48,6 @@ class ImageCard extends React.Component {
           autoScrollBodyContent={true}
           bodyClassName="dialog-body"
         >
-          <h1>{this.props.pic.title}</h1>
           <img className="image" src={this.props.url} alt={this.props.pic.title} />
           <CommentBox idx={this.props.idx} pic={this.props.pic} />
         </Dialog>
