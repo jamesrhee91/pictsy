@@ -24,8 +24,8 @@ class CommentBox extends React.Component {
     const { comments, idx } = this.props
     return (
       <div className="comment-box">
-        <CommentForm idx={idx} addComment={this.props.addComment} />
         {this.props.comments ? <ul>{comments.map((p, i) => <li key={i}>{Object.values(p)}</li>)}</ul> : <h1 className="no-comment">Be the first to comment!</h1>}
+        <CommentForm idx={idx} addComment={this.props.addComment} />
       </div>
     )
   }
