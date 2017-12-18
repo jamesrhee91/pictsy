@@ -13,7 +13,6 @@ const ImageContainer = ({ filtered }) => {
         return <ImageCard key={pic.id} idx={idx} pic={pic} url={pic.link} />
       }
     })
-    console.log("current filtered", filtered)
     return (
       <div className="image-wrapper">
         {allImages}

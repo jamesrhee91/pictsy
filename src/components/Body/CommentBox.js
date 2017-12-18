@@ -1,7 +1,7 @@
 import React from 'react'
 import IconButton from 'material-ui/IconButton'
 import ActionDelete from 'material-ui/svg-icons/action/delete'
-import {red400, lightBlue400} from 'material-ui/styles/colors'
+import { red400 } from 'material-ui/styles/colors'
 
 
 class CommentBox extends React.Component {
