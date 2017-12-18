@@ -1,6 +1,6 @@
 import React from 'react'
-import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
 
 export default class CommentForm extends React.Component {
 
@@ -21,9 +21,7 @@ export default class CommentForm extends React.Component {
       addComment(picId, this.state.comment)
       this.setState({ comment: "", error: "" })
     } else {
-      this.setState({
-        error: "This field is required"
-      })
+      this.setState({ error: "This field is required" })
     }
   }
 

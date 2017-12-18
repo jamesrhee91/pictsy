@@ -8,6 +8,8 @@ export default function optionsReducer(state = {
   switch (action.type) {
     case "MOUNT_IMAGES":
       return {...state, images: action.payload}
+    case "SEARCH_IMAGES":
+      return {...state, images: action.payload}
     case "MOST_VIEWS":
       newImages.sort(_compareValues('views', 'desc'))
       return {...state, images: newImages, currentSort: action.type}
