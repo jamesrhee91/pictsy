@@ -3,17 +3,24 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as commentActions from '../../actions/comments'
 import CommentForm from './CommentForm'
+import CommentBox from './CommentBox'
 import _ from 'lodash'
 import './style.css'
 
 class CommentContainer extends React.Component {
 
   render() {
-    const { currentImage, comments } = this.props
+    const { currentImage, addComment, deleteComment } = this.props
+    let display
+    if (!currentImage.comments || currentImage.comments.length === 0) {
+      display = <h2 className="no-comment">Be the first to comment!</h2>
+    } else {
+      display = currentImage.comments.map((e, i) => <CommentBox key={i} picId={currentImage.id} idx={i} comment={e} deleteComment={deleteComment} />)
+    }
     return (
       <div className="comment-box">
-        {this.props.currentImage.comments ? <ul>{this.props.currentImage.comments.map((p, i) => <li key={i}>{Object.values(p)}</li>)}</ul> : <h1 className="no-comment">Be the first to comment!</h1>}
-        <CommentForm picId={currentImage.id} addComment={this.props.addComment} />
+        {display}
+        <CommentForm picId={currentImage.id} addComment={addComment} />
       </div>
     )
   }

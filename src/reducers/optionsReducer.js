@@ -35,6 +35,12 @@ export default function optionsReducer(state = {
         return image
       })
       return {...state, images: newImages}
+    case "DELETE_COMMENT":
+      let currentImage = newImages.find(image => {
+        return image.id === action.picId
+      })
+      currentImage.comments.splice(action.idx, 1)
+      return {...state, images: newImages}
     default:
       return state
   }
