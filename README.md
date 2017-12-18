@@ -19,6 +19,19 @@ Search and browse images that are popular on the web! Filter through images by c
 
 
 
+
 ### Search
 ###### Use the search bar to search for images that are popular on the web
 ![alt text](./assets/search.gif)
+
+
+
+### Enlarge and comment on images
+###### Click on images to get a closer look of the image and write a comment.
+![alt text](./assets/comment.gif)
+
+
+
+### Sort and filter through images
+###### Use the drop-down menu to sort images according to Latest, Most Views, Most Upvotes, and Most Fav. Toggle the NSFW button to allow NSFW images to be displayed.
+![alt text](./assets/filter.gif)
