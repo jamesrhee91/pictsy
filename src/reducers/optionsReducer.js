@@ -21,23 +21,8 @@ export default function optionsReducer(state = {
       newImages.sort(_compareValues('datetime', 'desc'))
       return {...state, images: newImages, currentSort: action.type}
     case "ADD_COMMENT":
-      // newImages = state.images.map((content, index) => {
-      //   if (index === action.idx) {
-      //     if (content.comments) {
-      //       let length = content.comments.length
-      //       content.comments.push({ [length]:action.payload })
-      //     } else {
-      //       content.comments = []
-      //       content.comments.push({ "0":action.payload })
-      //     }
-      //     return content
-      //   }
-      //
-      //   return content
-      // })
-      // return {...state, images: newImages }
       newImages.map(image => {
-        if (image.id === action.currentImage.id) {
+        if (image.id === action.picId) {
           if (image.comments) {
             let length = image.comments.length
             image.comments.push({ [length]:action.payload })
@@ -49,14 +34,6 @@ export default function optionsReducer(state = {
         }
         return image
       })
-      // if (action.currentImage.comments) {
-      //   let length = action.currentImage.comments.length
-      //   action.currentImage.comments.push({ [length]:action.payload })
-      // } else {
-      //   action.currentImage.comments = []
-      //   action.currentImage.comments.push({ "0":action.payload })
-      // }
-
       return {...state, images: newImages}
     default:
       return state

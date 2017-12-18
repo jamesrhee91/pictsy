@@ -1,7 +1,7 @@
 import React from 'react'
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import CommentBox from './CommentBox'
+import CommentContainer from './CommentContainer'
 import './style.css'
 
 class ImageCard extends React.Component {
@@ -49,7 +49,7 @@ class ImageCard extends React.Component {
           bodyClassName="dialog-body"
         >
           <img className="image" src={this.props.url} alt={this.props.pic.title} />
-          <CommentBox pic={this.props.pic} />
+          <CommentContainer pic={this.props.pic} />
         </Dialog>
         <div className="overlay"><div id="overlay-text">View Image</div></div>
       </div>

@@ -15,10 +15,10 @@ export default class CommentForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log("SUBMITTING:", this.state.comment)
+    const { picId, addComment } = this.props
 
     if (/\S/.test(this.state.comment)) {
-      this.props.addComment(this.props.currentImage, this.state.comment)
+      addComment(picId, this.state.comment)
       this.setState({ comment: "", error: "" })
     } else {
       this.setState({
