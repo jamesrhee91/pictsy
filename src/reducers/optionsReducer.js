@@ -1,52 +1,63 @@
 export default function optionsReducer(state = {
   images: [],
   currentSort: 'LATEST',
-  mature: false,
-  currentImage: null
+  mature: false
 }, action) {
-  let newImages
+  let newImages = Object.assign([], state.images)
 
   switch (action.type) {
     case "MOUNT_IMAGES":
       return {...state, images: action.payload}
     case "MOST_VIEWS":
-      newImages = state.images.slice().sort(_compareValues('views', 'desc'))
+      newImages.sort(_compareValues('views', 'desc'))
       return {...state, images: newImages, currentSort: action.type}
     case "MOST_UPVOTES":
-      newImages = state.images.slice().sort(_compareValues('ups', 'desc'))
+      newImages.sort(_compareValues('ups', 'desc'))
       return {...state, images: newImages, currentSort: action.type}
     case "MOST_FAV":
-      newImages = state.images.slice().sort(_compareValues('favorite_count', 'desc'))
+      newImages.sort(_compareValues('favorite_count', 'desc'))
       return {...state, images: newImages, currentSort: action.type}
     case "LATEST":
-      newImages = state.images.slice().sort(_compareValues('datetime', 'desc'))
+      newImages.sort(_compareValues('datetime', 'desc'))
       return {...state, images: newImages, currentSort: action.type}
     case "ADD_COMMENT":
-      newImages = state.images.map((content, index) => {
-        if (index === action.idx) {
-          if (content.comments) {
-            let length = content.comments.length
-            content.comments.push({ [length]:action.payload })
+      // newImages = state.images.map((content, index) => {
+      //   if (index === action.idx) {
+      //     if (content.comments) {
+      //       let length = content.comments.length
+      //       content.comments.push({ [length]:action.payload })
+      //     } else {
+      //       content.comments = []
+      //       content.comments.push({ "0":action.payload })
+      //     }
+      //     return content
+      //   }
+      //
+      //   return content
+      // })
+      // return {...state, images: newImages }
+      newImages.map(image => {
+        if (image.id === action.currentImage.id) {
+          if (image.comments) {
+            let length = image.comments.length
+            image.comments.push({ [length]:action.payload })
           } else {
-            content.comments = []
-            content.comments.push({ "0":action.payload })
+            image.comments = []
+            image.comments.push({ "0":action.payload })
           }
-          return content
+          return image
         }
-
-        return content
+        return image
       })
-      return {...state, images: newImages }
-
-      // if (action.pic.comments) {
-      //   let length = action.pic.comments.length.toString()
-      //   action.pic.comments.push({ [length]:action.payload })
+      // if (action.currentImage.comments) {
+      //   let length = action.currentImage.comments.length
+      //   action.currentImage.comments.push({ [length]:action.payload })
       // } else {
-      //   action.pic.comments = []
-      //   action.pic.comments.push({ "0":action.payload })
+      //   action.currentImage.comments = []
+      //   action.currentImage.comments.push({ "0":action.payload })
       // }
-      // return {...state, images: {...state.images, }}
 
+      return {...state, images: newImages}
     default:
       return state
   }

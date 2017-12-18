@@ -4,12 +4,14 @@ import { bindActionCreators } from 'redux'
 // import { addComment } from '../../actions/comments'
 import * as commentActions from '../../actions/comments'
 import CommentForm from './CommentForm'
+import _ from 'lodash'
 import './style.css'
 
 class CommentBox extends React.Component {
 
   componentWillReceiveProps(nextProps) {
-    console.log("this.props", this.props.comments)
+    console.log("this.props", this.props)
+    console.log("currentProps", this.props.pic.comments)
     console.log("nextProps", nextProps.pic.comments)
   }
 
@@ -21,11 +23,11 @@ class CommentBox extends React.Component {
 
   render() {
     console.log("comments", this.props.pic.comments)
-    const { comments, idx } = this.props
+    const { currentImage, comments } = this.props
     return (
       <div className="comment-box">
-        {this.props.comments ? <ul>{comments.map((p, i) => <li key={i}>{Object.values(p)}</li>)}</ul> : <h1 className="no-comment">Be the first to comment!</h1>}
-        <CommentForm idx={idx} addComment={this.props.addComment} />
+        {this.props.currentImage.comments ? <ul>{this.props.currentImage.comments.map((p, i) => <li key={i}>{Object.values(p)}</li>)}</ul> : <h1 className="no-comment">Be the first to comment!</h1>}
+        <CommentForm currentImage={currentImage} addComment={this.props.addComment} commentBox={comments} />
       </div>
     )
   }
@@ -50,11 +52,11 @@ class CommentBox extends React.Component {
 // }
 
 function mapStateToProps(state, ownProps) {
-  const idx = ownProps.idx
-  const comments = ownProps.pic.comments || []
+  const currentImage = ownProps.pic
+  const comments = _.get(state, 'comments', [])
   return {
-    comments,
-    idx
+    currentImage,
+    comments
   }
 }
 

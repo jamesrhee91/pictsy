@@ -18,7 +18,7 @@ export default class CommentForm extends React.Component {
     console.log("SUBMITTING:", this.state.comment)
 
     if (/\S/.test(this.state.comment)) {
-      this.props.addComment(this.props.idx, this.state.comment)
+      this.props.addComment(this.props.currentImage, this.state.comment)
       this.setState({ comment: "", error: "" })
     } else {
       this.setState({

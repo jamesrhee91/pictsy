@@ -49,7 +49,7 @@ class ImageCard extends React.Component {
           bodyClassName="dialog-body"
         >
           <img className="image" src={this.props.url} alt={this.props.pic.title} />
-          <CommentBox idx={this.props.idx} pic={this.props.pic} />
+          <CommentBox pic={this.props.pic} />
         </Dialog>
         <div className="overlay"><div id="overlay-text">View Image</div></div>
       </div>
