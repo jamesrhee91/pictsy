@@ -1,38 +1,22 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as picturesActions from '../../actions/pictures'
 import DropDownMenu from 'material-ui/DropDownMenu'
-import MenuItem from 'material-ui/MenuItem';
+import MenuItem from 'material-ui/MenuItem'
 
-class SortButton extends React.Component {
+const SortButton = ({ currentSort, sortImages }) => {
 
-  handleChange = (event, index, value) => {
+  const handleChange = (event, index, value) => {
     event.preventDefault()
-    this.props.sortImages(value)
+    sortImages(value)
   }
 
-  render() {
-    return (
-      <DropDownMenu value={this.props.currentSort} onChange={this.handleChange}>
-        <MenuItem value="MOST_VIEWS" primaryText="Most Views" />
-        <MenuItem value="MOST_UPVOTES" primaryText="Most Upvotes" />
-        <MenuItem value="MOST_FAV" primaryText="Most Fav" />
-        <MenuItem value="LATEST" primaryText="Latest" />
-      </DropDownMenu>
-    )
-  }
+  return (
+    <DropDownMenu value={currentSort} onChange={(e, i, v) => handleChange(e, i, v)}>
+      <MenuItem value="MOST_VIEWS" primaryText="Most Views" />
+      <MenuItem value="MOST_UPVOTES" primaryText="Most Upvotes" />
+      <MenuItem value="MOST_FAV" primaryText="Most Fav" />
+      <MenuItem value="LATEST" primaryText="Latest" />
+    </DropDownMenu>
+  )
 }
 
-
-function mapStateToProps(state) {
-  return {
-    currentSort: state.currentSort,
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(picturesActions, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SortButton)
+export default SortButton
