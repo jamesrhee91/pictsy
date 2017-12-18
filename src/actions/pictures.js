@@ -1,4 +1,4 @@
-export function getImages(state) {
+export function getImages() {
   const data = {
     method: 'GET',
     headers: {
@@ -42,5 +42,11 @@ export function searchImages(query) {
 export function sortImages(value) {
   return (dispatch) => {
     dispatch({type: value})
+  }
+}
+
+export function filterImages(filter) {
+  return (dispatch) => {
+    dispatch({type: "FILTER_IMAGES"})
   }
 }

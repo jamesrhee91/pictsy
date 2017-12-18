@@ -6,16 +6,7 @@
   align-items: center;
 }
 
-.title {
-  font-size: 10vw;
-}
-
-.top {
-  display: flex;
-  justify-content: space-between;
-}
-
-#title-wrapper {
+#title-container {
   font-family: Roboto, sans-serif;
   padding: 1%;
   padding-left: 2%;
@@ -32,4 +23,22 @@
 
 #search-bar-container {
   margin: auto;
+}
+
+
+.title {
+  font-size: 10vw;
+}
+
+.title-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-wrapper {
+  display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 2vh;
 }

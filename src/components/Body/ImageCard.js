@@ -18,15 +18,15 @@ class ImageCard extends React.Component {
     this.setState({open: false});
   }
 
-  addComment = (comment) => {
-    if (this.props.pic.comments) {
-      let length = this.props.pic.comments.length.toString()
-      this.props.pic.comments.unshift({ [length]:comment })
-    } else {
-      this.props.pic.comments = []
-      this.props.pic.comments.unshift({ "0":comment })
-    }
-  }
+  // addComment = (comment) => {
+  //   if (this.props.pic.comments) {
+  //     let length = this.props.pic.comments.length.toString()
+  //     this.props.pic.comments.unshift({ [length]:comment })
+  //   } else {
+  //     this.props.pic.comments = []
+  //     this.props.pic.comments.unshift({ "0":comment })
+  //   }
+  // }
 
 
   render() {

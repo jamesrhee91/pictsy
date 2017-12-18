@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as pictureActions from './actions/pictures'
@@ -10,17 +10,17 @@ import ImageContainer from './components/Body/ImageContainer'
 class App extends Component {
 
   componentDidMount() {
-    this.props.getImages(this.props)
+    this.props.getImages()
   }
 
   render() {
     return (
-      <div>
-        <MuiThemeProvider>
+      <MuiThemeProvider>
+        <div>
           <HeadContainer />
-          <ImageContainer images={this.props.images} />
-        </MuiThemeProvider>
-      </div>
+          <ImageContainer filtered={this.props.filtered} />
+        </div>
+      </MuiThemeProvider>
     );
   }
 
@@ -28,8 +28,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    images: state.options.images,
-    mature: state.options.mature
+    filtered: state.filtered
   }
 }
 
