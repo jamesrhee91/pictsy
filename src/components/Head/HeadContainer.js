@@ -10,7 +10,7 @@ import './style.css'
 class HeadContainer extends React.Component {
 
   render() {
-    const { sortImages, currentSort, filterImages } = this.props
+    const { currentSort, sortImages, filterImages, searchImages } = this.props
     return (
       <div id="head">
         <div id="title-container">
@@ -25,7 +25,7 @@ class HeadContainer extends React.Component {
             <div className="title">Y</div>
           </div>
         </div>
-        <SearchBar />
+        <SearchBar searchImages={searchImages} />
         <div className="button-wrapper">
           <SortButton sortImages={sortImages} currentSort={currentSort} />
           <FilterButton filterImages={filterImages} />

@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import CommentContainer from './CommentContainer'
 import './style.css'
 
-class ImageCard extends React.Component {
+export default class ImageCard extends React.Component {
 
   state = {
     open: false
@@ -17,17 +17,6 @@ class ImageCard extends React.Component {
   handleClose = () => {
     this.setState({open: false});
   }
-
-  // addComment = (comment) => {
-  //   if (this.props.pic.comments) {
-  //     let length = this.props.pic.comments.length.toString()
-  //     this.props.pic.comments.unshift({ [length]:comment })
-  //   } else {
-  //     this.props.pic.comments = []
-  //     this.props.pic.comments.unshift({ "0":comment })
-  //   }
-  // }
-
 
   render() {
     const actions = [
@@ -56,5 +45,3 @@ class ImageCard extends React.Component {
     )
   }
 }
-
-export default ImageCard

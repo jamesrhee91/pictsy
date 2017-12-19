@@ -1,7 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as pictureActions from '../../actions/pictures'
 import TextField from 'material-ui/TextField'
 import IconButton from 'material-ui/IconButton'
 import ActionSearch from 'material-ui/svg-icons/action/search'
@@ -9,7 +6,7 @@ import { grey800 } from 'material-ui/styles/colors'
 import './style.css'
 
 
-class SearchBar extends React.Component {
+export default class SearchBar extends React.Component {
 
   state = {
     query: "",
@@ -53,9 +50,3 @@ class SearchBar extends React.Component {
     )
   }
 }
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(pictureActions, dispatch)
-}
-
-export default connect(null, mapDispatchToProps)(SearchBar)

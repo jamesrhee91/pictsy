@@ -4,7 +4,7 @@ import ActionDelete from 'material-ui/svg-icons/action/delete'
 import { red400 } from 'material-ui/styles/colors'
 
 
-class CommentBox extends React.Component {
+export default class CommentBox extends React.Component {
 
   handleDelete = (event) => {
     event.preventDefault()
@@ -26,5 +26,3 @@ class CommentBox extends React.Component {
     )
   }
 }
-
-export default CommentBox
