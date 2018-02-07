@@ -4,6 +4,7 @@ Search and browse images that are popular on the web! Filter through images by c
 
 **This app was made as a code challenge project and was not intended to be deployed for public use.**
 
+
 ## Made using
  - React with Redux for Front-end development
  - Imgur API
